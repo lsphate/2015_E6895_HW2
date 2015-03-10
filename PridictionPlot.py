@@ -16,7 +16,7 @@ def plotDiagram(company, today):
     mavg = pd.rolling_mean(cprice, 3)
     ewma = pd.ewma(cprice, span = 3)
     print "\n" + company
-    print ("  Actual Price: "
+    print ("  Close Price: "
             + str(Share(company).get_historical(str(today), str(today)).pop(-1)['Adj_Close'])
             + " @ " + str(today))
     print ("  Estimate Price: "
@@ -44,5 +44,3 @@ if __name__ == '__main__':
     company = raw_input('\nEnter Company Code to estimate the price: ')
 
     plotDiagram(company, today)
-
-
