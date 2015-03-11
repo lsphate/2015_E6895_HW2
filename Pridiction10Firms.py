@@ -12,7 +12,7 @@ def plotDiagram(company, today):
         end = dt.datetime(today.year, today.month, today.day))
 
     cprice = df['Adj Close']
-    mavg = pd.rolling_mean(cprice, 3)
+    mavg = pd.rolling_mean(cprice, 10)
     ewma = pd.ewma(cprice, span = 3)
     print "Estimate Price of " + company + " @ " + str(today + dt.timedelta(days=1)) + ": "
 #    print ("  Actual Price: "
@@ -29,6 +29,6 @@ def predictPrice(CPRICE, MAVG, EWMA):
 
 if __name__ == '__main__':
     firms = ['AXP', "T", 'BA', 'GE', 'NKE', 'GS', 'IBM', 'MSFT', 'MCD', 'WMT']
-    today = dt.date.today() - dt.timedelta(days=0)
+    today = dt.date.today()
     for company in firms:
         plotDiagram(company, today)

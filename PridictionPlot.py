@@ -13,11 +13,12 @@ def plotDiagram(company, today):
         end = dt.datetime(today.year, today.month, today.day))
 
     cprice = df['Adj Close']
-    mavg = pd.rolling_mean(cprice, 3)
+    mavg = pd.rolling_mean(cprice, 10)
     ewma = pd.ewma(cprice, span = 3)
     print "\n" + company
     print ("  Close Price: "
-            + str(Share(company).get_historical(str(today), str(today)).pop(-1)['Adj_Close'])
+            + str(Share(company).get_price())
+#            + str(Share(company).get_historical(str(today), str(today)).pop(-1)['Adj_Close'])
             + " @ " + str(today))
     print ("  Estimate Price: "
             + str(predictPrice(cprice, mavg, ewma))
@@ -40,7 +41,7 @@ if __name__ == '__main__':
     print "American Express(AXP), AT&T(T), Boeing(BA), General Electric(GE), Nike(NKE)"
     print "Goldman Sachs(GS), IBM(IBM), Microsoft(MSFT), McDonald\'s(MCD), Walmart(WMT)"
 
-    today = dt.date.today() - dt.timedelta(days=1)
+    today = dt.date.today()
     company = raw_input('\nEnter Company Code to estimate the price: ')
 
     plotDiagram(company, today)

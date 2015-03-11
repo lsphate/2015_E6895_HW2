@@ -35,11 +35,11 @@ def plotDiagram(company, today):
         start = dt.datetime(2015, 1, 1),
         end = dt.datetime(today.year, today.month, today.day))
     cprice = df['Adj Close']
-    mavg = pd.rolling_mean(cprice, 3)
+    mavg = pd.rolling_mean(cprice, 10)
     ewma = pd.ewma(cprice, span = 3)
     print "\n" + company
     print ("  Close Price: "
-            + str(Share(company).get_historical(str(today), str(today)).pop(-1)['Adj_Close'])
+            + str(Share(company).get_price())
             + " @ " + str(today))
     print ("  Estimate Price: "
             + str(predictPrice(cprice, mavg, ewma))
@@ -85,7 +85,7 @@ def plotDiagram(company, today):
         start = dt.datetime(2015, 1, 1),
         end = dt.datetime(today.year, today.month, today.day))
     cprice = df['Adj Close']
-    mavg = pd.rolling_mean(cprice, 3)
+    mavg = pd.rolling_mean(cprice, 10)
     ewma = pd.ewma(cprice, span = 3)
     print "\n" + "Estimate Price of " + company + " @ " + str(today + dt.timedelta(days=1)) + ": "
     print "  " + str(predictPrice(cprice, mavg, ewma))
@@ -102,4 +102,4 @@ if __name__ == '__main__':
     for company in firms:
         plotDiagram(company, today)
 ```
-![](file:///Volumes/JetDrive/Columbia/2015%20Spring/Adv%20Big%20Data%20Analytics/HW2/Picture%202.png =750x)
+![](file:///Volumes/JetDrive/Columbia/2015%20Spring/Adv%20Big%20Data%20Analytics/HW2/Picture%202.png =500x)
