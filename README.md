@@ -34,6 +34,7 @@ def plotDiagram(company, today):
         company,
         start = dt.datetime(2015, 1, 1),
         end = dt.datetime(today.year, today.month, today.day))
+    df.loc[today] = (Share(company).get_open(), Share(company).get_days_high(), Share(company).get_days_low(), Share(company).get_price(), Share(company).get_volume(), float(Share(company).get_price()))
     cprice = df['Adj Close']
     mavg = pd.rolling_mean(cprice, 10)
     ewma = pd.ewma(cprice, span = 3)
@@ -84,6 +85,7 @@ def plotDiagram(company, today):
         company,
         start = dt.datetime(2015, 1, 1),
         end = dt.datetime(today.year, today.month, today.day))
+    df.loc[today] = (Share(company).get_open(), Share(company).get_days_high(), Share(company).get_days_low(), Share(company).get_price(), Share(company).get_volume(), float(Share(company).get_price()))
     cprice = df['Adj Close']
     mavg = pd.rolling_mean(cprice, 10)
     ewma = pd.ewma(cprice, span = 3)

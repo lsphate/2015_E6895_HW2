@@ -12,6 +12,7 @@ def plotDiagram(company, today):
         start = dt.datetime(2015, 1, 1),
         end = dt.datetime(today.year, today.month, today.day))
 
+    df.loc[today] = (Share(company).get_open(), Share(company).get_days_high(), Share(company).get_days_low(), Share(company).get_price(), Share(company).get_volume(), float(Share(company).get_price()))
     cprice = df['Adj Close']
     mavg = pd.rolling_mean(cprice, 10)
     ewma = pd.ewma(cprice, span = 3)
@@ -41,7 +42,7 @@ if __name__ == '__main__':
     print "American Express(AXP), AT&T(T), Boeing(BA), General Electric(GE), Nike(NKE)"
     print "Goldman Sachs(GS), IBM(IBM), Microsoft(MSFT), McDonald\'s(MCD), Walmart(WMT)"
 
-    today = dt.date.today()
+    today = dt.date.today() - dt.timedelta(days=0)
     company = raw_input('\nEnter Company Code to estimate the price: ')
 
     plotDiagram(company, today)

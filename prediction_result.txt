@@ -1,0 +1,29 @@
+Estimate Price of AXP @ 2015-03-13: 
+  80.6999694129
+
+Estimate Price of T @ 2015-03-13: 
+  32.8368403841
+
+Estimate Price of BA @ 2015-03-13: 
+  152.155628087
+
+Estimate Price of GE @ 2015-03-13: 
+  25.2879964517
+
+Estimate Price of NKE @ 2015-03-13: 
+  96.7769802602
+
+Estimate Price of GS @ 2015-03-13: 
+  188.004543977
+
+Estimate Price of IBM @ 2015-03-13: 
+  157.487869599
+
+Estimate Price of MSFT @ 2015-03-13: 
+  40.8935041552
+
+Estimate Price of MCD @ 2015-03-13: 
+  95.6620239844
+
+Estimate Price of WMT @ 2015-03-13: 
+  81.502879597
